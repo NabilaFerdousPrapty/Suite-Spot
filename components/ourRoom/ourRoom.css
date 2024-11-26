@@ -1,0 +1,86 @@
+
+
+
+
+.sub-title {
+    position: relative;
+}
+
+.sub-title:after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 50px;
+    background: #3E48A8;
+    border-radius: 10px;
+    top: 50%;
+    left: 56%;
+    transform: translateX(-50%);
+}
+
+.sub-title:before {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 50px;
+    background: #3E48A8;
+    border-radius: 10px;
+    top: 50%;
+    left: 44%;
+    transform: translateX(-50%);
+}
+
+
+
+
+
+
+
+/* ============================================================================================== */
+/* Responsive / Mobile Screen*/
+@media only screen and (min-width: 300px) and (max-width: 380px) {
+    .sub-title:after {
+        width: 60px;
+        top: 52%;
+        left: 90%;
+    }
+
+    .sub-title:before {
+        width: 60px;
+        top: 52%;
+        left: 10%;
+    }
+
+
+}
+
+/* ============================================================================================== */
+/* Responsive / Medium Screen*/
+@media only screen and (min-width: 385px) and (max-width: 620px) {
+    .sub-title:after {
+        width: 70px;
+        left: 85%;
+    }
+
+    .sub-title:before {
+        width: 70px;
+        left: 15%;
+    }
+
+}
+
+
+/* ============================================================================================== */
+/* Responsive / Medium Screen*/
+@media only screen and (min-width: 621px) and (max-width: 768px) {
+    .sub-title:after {
+        width: 90px;
+        left: 78%;
+    }
+
+    .sub-title:before {
+        width: 90px;
+        left: 22%;
+    }
+
+}
