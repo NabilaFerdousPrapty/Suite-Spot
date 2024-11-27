@@ -8,23 +8,25 @@ const Testimonials: React.FC = () => {
 
   return (
     <section className="relative flex">
-      <div className="min-h-screen bg-white dark:bg-gray-900 md:w-3/4"></div>
-      <div className="min-h-screen bg-blue-500 md:w-2/5"></div>
-
       <div className="flex flex-col justify-center w-full min-h-screen px-4 py-10 md:relative md:mx-24">
-        <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
-          What our <span className="text-blue-500">customers</span> <br /> are
-          saying
-        </h1>
+        <div className="">
+          <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
+            What our <span className="text-blue-500">customers</span> <br /> are
+            saying
+          </h1>
+          <p className="mt-4 text-gray-500 dark:text-gray-400">
+            Get insights from our satisfied customers about our services.
+          </p>
+        </div>
 
         {/* Marquee Section */}
-        <Marquee pauseOnHover gradient={false} speed={50} className="mt-8">
+        <Marquee pauseOnHover gradient={false} speed={50}>
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="w-80 p-8 mx-4 bg-white rounded-md shadow-lg dark:bg-gray-800"
+              className="w-80 p-8 mx-4 bg-white rounded-md shadow-lg dark:bg-gray-800 flex flex-col justify-between h-80 my-1 "
             >
-              <p className="leading-loose text-gray-500 dark:text-gray-400">
+              <p className="leading-loose text-gray-500 dark:text-gray-400 flex-1">
                 {testimonial.feedback}
               </p>
               <div className="flex items-center mt-6 -mx-2">
