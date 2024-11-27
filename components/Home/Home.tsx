@@ -3,6 +3,9 @@ import Navbar from "./Navbar";
 import Hero from "./Hero";
 import AboutUs from "./AboutUs";
 import Categories from "./Categories/Categories";
+import Rooms from "../rooms/page";
+import Services from "../services/page";
+import Testimonials from "./testimonials";
 
 export default function Home() {
   return (
@@ -21,8 +24,14 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <AboutUs/>
-      <Categories/>
+
+      <div className="max-w-7xl mx-auto ">
+        <AboutUs />
+        <Categories />
+        <Rooms />
+        <Services />
+        <Testimonials />
+      </div>
     </>
   );
 }
