@@ -8,7 +8,7 @@ import { FaWifi } from 'react-icons/fa6';
 
 const Rooms = () => {
     return (
-        <div className='max-w-7xl mx-auto px-4'>
+        <div className='px-4'>
             <p className='sub-title text-center text-[#3E48A8]'>Our Rooms</p>
             <h1 className='text-3xl font-bold text-center my-7'>Explore Our <span className='text-[#3E48A8]'>Rooms</span></h1>
 
