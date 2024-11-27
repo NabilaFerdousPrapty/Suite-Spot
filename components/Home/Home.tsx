@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
+import AboutUs from "./AboutUs";
+import Categories from "./Categories/Categories";
 
 export default function Home() {
   return (
@@ -13,12 +15,14 @@ export default function Home() {
         }}
       >
         <div className="bg-black bg-opacity-50">
-          <div className="container mx-auto  min-h-[80vh] md:min-h-[60vh] flex flex-col  text-white">
+          <div className="container mx-auto  min-h-[80vh] md:min-h-[60vh] flex flex-col text-white">
             <Navbar />
             <Hero />
           </div>
         </div>
       </div>
+      <AboutUs/>
+      <Categories/>
     </>
   );
 }

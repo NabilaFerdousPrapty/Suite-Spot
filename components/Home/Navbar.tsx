@@ -1,5 +1,6 @@
 "use client"; // Ensure this is a Client Component
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState, useRef, useEffect } from "react";
@@ -123,7 +124,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           {!user && <p className="font-semibold">Join Us</p>}
           {user && (
-            <img
+            <Image
               className="rounded-full w-7"
               referrerPolicy="no-referrer"
               src={user && user.profileImage ? user.profileImage : avatarImg}
@@ -139,7 +140,7 @@ export default function Navbar() {
       {isOpen && (
         <div
           ref={modalRef}
-          className="absolute z-10 rounded-xl shadow-md w-[40vw] md:w-[25vw] lg:w-[250px] bg-white text-black overflow-hidden right-0 top-20 lg:top-16 text-sm"
+          className="absolute z-10 rounded-xl shadow-md w-[40vw] md:w-[25vw] lg:w-[250px] bg-white text-gray-800 overflow-hidden right-0 top-20 lg:top-16 text-sm"
         >
           <div className="flex flex-col cursor-pointer">
             {/* Navigation Links */}

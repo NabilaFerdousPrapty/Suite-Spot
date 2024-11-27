@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <section className=" space-y-6 ml-8 md:ml-36 text-left mt-20">
+    <section className=" h-full space-y-6 ml-8  text-left my-[10%]">
         <small className='uppercase'>Welcome To</small>
     <h2 className=" text-5xl md:text-7xl font-bold ">Hotel Paradise</h2>
     <h3 className=" text-4xl md:text-5xl ">Ahmedabad India</h3>
