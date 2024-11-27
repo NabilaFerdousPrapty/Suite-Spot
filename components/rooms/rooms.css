@@ -36,51 +36,61 @@
 
 
 
-/* ============================================================================================== */
 /* Responsive / Mobile Screen*/
-@media only screen and (min-width: 300px) and (max-width: 380px) {
+@media only screen and  (max-width: 380px) {
     .sub-title:after {
-        width: 60px;
+        width: 40px;
         top: 52%;
-        left: 90%;
+        left: 75%;
     }
 
     .sub-title:before {
-        width: 60px;
+        width: 40px;
         top: 52%;
-        left: 10%;
+        left: 25%;
     }
 
 
 }
 
-/* ============================================================================================== */
 /* Responsive / Medium Screen*/
-@media only screen and (min-width: 385px) and (max-width: 620px) {
+@media only screen and (min-width: 381px) and (max-width: 620px) {
     .sub-title:after {
-        width: 70px;
-        left: 85%;
+        width: 50px;
+        left: 70%;
     }
 
     .sub-title:before {
-        width: 70px;
-        left: 15%;
+        width: 50px;
+        left: 30%;
     }
 
 }
 
 
-/* ============================================================================================== */
 /* Responsive / Medium Screen*/
 @media only screen and (min-width: 621px) and (max-width: 768px) {
     .sub-title:after {
-        width: 90px;
-        left: 78%;
+        width: 50px;
+        left: 60%;
     }
 
     .sub-title:before {
-        width: 90px;
-        left: 22%;
+        width: 50px;
+        left: 40%;
+    }
+}
+
+
+/* Responsive / Medium Screen*/
+@media only screen and (min-width: 769px) and (max-width: 1120px) {
+    .sub-title:after {
+        width: 50px;
+        left: 60%;
     }
 
+    .sub-title:before {
+        width: 50px;
+        left: 40%;
+    }
 }
