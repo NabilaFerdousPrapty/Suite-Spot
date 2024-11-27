@@ -7,10 +7,6 @@ export default function HomePage() {
   return (
     <div>
       <Home />
-      <div className="max-w-7xl mx-auto">
-        <Rooms />
-        <Services />
-      </div>
 
       <Footer />
     </div>
