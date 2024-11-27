@@ -1,7 +1,8 @@
-export default function Home() {
+import Home from "@/components/Home/Home";
+export default function HomePage() {
   return (
-    <div className="container">
-      <h1>Next.js + TypeScript + Tailwind CSS</h1>
-    </div>
+    <>
+      <Home />
+    </>
   );
 }
