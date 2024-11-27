@@ -1,0 +1,96 @@
+
+
+
+
+.sub-title {
+    position: relative;
+}
+
+.sub-title:after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 50px;
+    background: #3E48A8;
+    border-radius: 10px;
+    top: 50%;
+    left: 56%;
+    transform: translateX(-50%);
+}
+
+.sub-title:before {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 50px;
+    background: #3E48A8;
+    border-radius: 10px;
+    top: 50%;
+    left: 44%;
+    transform: translateX(-50%);
+}
+
+
+
+
+
+
+
+/* Responsive / Mobile Screen*/
+@media only screen and  (max-width: 380px) {
+    .sub-title:after {
+        width: 40px;
+        top: 52%;
+        left: 75%;
+    }
+
+    .sub-title:before {
+        width: 40px;
+        top: 52%;
+        left: 25%;
+    }
+
+
+}
+
+/* Responsive / Medium Screen*/
+@media only screen and (min-width: 381px) and (max-width: 620px) {
+    .sub-title:after {
+        width: 50px;
+        left: 70%;
+    }
+
+    .sub-title:before {
+        width: 50px;
+        left: 30%;
+    }
+
+}
+
+
+/* Responsive / Medium Screen*/
+@media only screen and (min-width: 621px) and (max-width: 768px) {
+    .sub-title:after {
+        width: 50px;
+        left: 60%;
+    }
+
+    .sub-title:before {
+        width: 50px;
+        left: 40%;
+    }
+}
+
+
+/* Responsive / Medium Screen*/
+@media only screen and (min-width: 769px) and (max-width: 1120px) {
+    .sub-title:after {
+        width: 50px;
+        left: 60%;
+    }
+
+    .sub-title:before {
+        width: 50px;
+        left: 40%;
+    }
+}
