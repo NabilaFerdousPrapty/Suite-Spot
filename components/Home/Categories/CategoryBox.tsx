@@ -3,7 +3,7 @@ import { IconType } from "react-icons"; // Assuming you're using react-icons
 
 interface CategoryBoxProps {
   label: string;
-  icon: IconType; // Type for the icon component
+  icon: IconType; 
 }
 
 const CategoryBox: React.FC<CategoryBoxProps> = ({ label, icon: Icon }) => {

@@ -17,8 +17,6 @@ const Categories = () => {
         modules={[Navigation, Pagination]}
         spaceBetween={20}
         slidesPerView={5}
-        // navigation
-        // pagination={{ clickable: true }}
         breakpoints={{
           1024: { slidesPerView: 12 },
           768: { slidesPerView: 9 },
