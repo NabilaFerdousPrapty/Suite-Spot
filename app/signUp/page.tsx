@@ -1,7 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form"; // Import React Hook Form
 import { AiOutlineArrowRight } from "react-icons/ai"; // React icon for arrow right
-import { FaClipboardList, FaGoogle, FaUtensils } from "react-icons/fa";
+import { FaClipboardList, FaUtensils } from "react-icons/fa";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 

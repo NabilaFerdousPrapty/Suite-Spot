@@ -1,9 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import { AiFillFacebook } from "react-icons/ai";
-import { FaGoogle, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaMapPin } from "react-icons/fa";
+
 import { FcGoogle } from "react-icons/fc";
+import { MdEmail } from "react-icons/md";
 import { SiGithub } from "react-icons/si";
+import { doSocialLogin } from "../actions";
 
 const LoginForm: React.FC = () => {
   return (
@@ -13,6 +16,7 @@ const LoginForm: React.FC = () => {
           <div className="lg:w-1/2">
             <Image
               className="w-auto h-20"
+              priority={true}
               src="https://i.ibb.co.com/t8HNdWr/Screenshot-2024-11-27-151149-removebg-preview.png"
               alt="Logo"
               width={100}
@@ -30,7 +34,7 @@ const LoginForm: React.FC = () => {
             <form className="w-full lg:max-w-xl">
               <div className="relative flex items-center">
                 <span className="absolute">
-                  <FaGoogle className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" />
+                  <MdEmail className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" />
                 </span>
                 <input
                   type="email"
@@ -42,7 +46,7 @@ const LoginForm: React.FC = () => {
 
               <div className="relative flex items-center mt-4">
                 <span className="absolute">
-                  <FaFacebookF className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" />
+                  <FaMapPin className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" />
                 </span>
                 <input
                   type="password"
@@ -52,17 +56,10 @@ const LoginForm: React.FC = () => {
                 />
               </div>
 
-              <div className="mt-8 md:flex md:items-center">
-                <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg md:w-1/2 hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+              <div className="mt-8 flex items-center">
+                <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg  hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                   Sign in
                 </button>
-
-                <a
-                  href="#"
-                  className="inline-block mt-4 text-center text-blue-500 md:mt-0 md:mx-6 hover:underline dark:text-blue-400"
-                >
-                  Forgot your password?
-                </a>
               </div>
             </form>
           </div>
@@ -73,31 +70,40 @@ const LoginForm: React.FC = () => {
             Login with social media
           </h3>
 
-          <div className="flex items-center mt-4 sm:mt-0 -mx-1.5 sm:w-1/2">
-            <a
+          <form
+            action={doSocialLogin}
+            className="flex items-center mt-4 sm:mt-0 -mx-1.5 sm:w-1/2"
+          >
+            <button
+              type="submit"
+              name="action"
+              value={"google"}
               className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-              href="#"
             >
               <FcGoogle className="w-8 h-8" />
-            </a>
+            </button>
 
-            <a
+            <button
+              type="submit"
+              name="action"
+              value="facebook"
               className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-              href="#"
             >
               <AiFillFacebook className="w-8 h-8 text-blue-500" />
-            </a>
+            </button>
 
-            <a
+            <button
+              type="submit"
+              name="action"
+              value="github"
               className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-              href="#"
             >
               <SiGithub className="w-8 h-8 text-gray-700" />
-            </a>
-          </div>
+            </button>
+          </form>
         </div>
         <p className="max-w-3xl mx-auto mt-12 text-sm text-center text-gray-500">
-          Don't have an account?{" "}
+          Do not have an account?{" "}
           <a
             href="/signUp"
             className="text-blue-500 dark:text-blue-400 hover:underline"
