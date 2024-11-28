@@ -5,10 +5,11 @@ import hotel1 from '../../public/image/hotel1.jpeg';
 import { TbBathFilled } from 'react-icons/tb';
 import { FaBed } from 'react-icons/fa';
 import { FaWifi } from 'react-icons/fa6';
+import Link from 'next/link';
 
 const Rooms = () => {
     return (
-        <div className='px-4 mt-8'>
+        <div className='px-4 mt-8 text-black'>
             <p className='sub-title text-center text-[#3E48A8]'>Our Rooms</p>
             <h1 className='text-3xl font-bold text-center my-7'>Explore Our <span className='text-[#3E48A8]'>Rooms</span></h1>
 
@@ -36,7 +37,10 @@ const Rooms = () => {
                             Enjoy a relaxing stay with plush beds, a spacious bathroom, and complimentary high-speed Wi-Fi.
                         </p>
                         <p className='text-xl font-bold'>$50 / Per Night</p>
-                        <button className='button w-full bg-[#3E48A8] text-white p-2'>Book Now</button>
+                        <Link href="#" >
+                            <button className='button w-full bg-[#3E48A8] text-white p-2 mt-4'>Book Now</button>
+                        </Link>
+
                     </div>
                 </div>
 
@@ -62,7 +66,9 @@ const Rooms = () => {
                             workspace, and luxurious bedding. Relax in a well-lit environment and enjoy premium amenities.
                         </p>
                         <p className='text-xl font-bold'>$85 / Per Night</p>
-                        <button className='button w-full bg-[#3E48A8] text-white p-2'>Book Now</button>
+                        <Link href="#" >
+                            <button className='button w-full bg-[#3E48A8] text-white p-2 mt-4'>Book Now</button>
+                        </Link>
                     </div>
                 </div>
 
@@ -89,7 +95,10 @@ const Rooms = () => {
                             ultimate comfort.
                         </p>
                         <p className='text-xl font-bold'>$100 / Per Night</p>
-                        <button className='button w-full bg-[#3E48A8] text-white p-2'>Book Now</button>
+
+                        <Link href="#" >
+                            <button className='button w-full bg-[#3E48A8] text-white p-2 mt-4'>Book Now</button>
+                        </Link>
                     </div>
                 </div>
             </div>
