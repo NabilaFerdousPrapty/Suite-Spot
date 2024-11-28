@@ -7,8 +7,6 @@ export default function HomePage() {
   return (
     <div>
       <Home />
-
-      <Footer />
     </div>
   );
 }
