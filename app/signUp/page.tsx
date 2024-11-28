@@ -14,12 +14,28 @@ const SignUpForm = () => {
   } = useForm();
 
   // Submit handler
-  const onSubmit = (data) => {
-    console.log(data);
-    // Handle form submission (e.g., send data to the server)
-  };
-  const [accountType, setAccountType] = useState("");
 
+  const [accountType, setAccountType] = useState("");
+  const onSubmit = async (data) => {
+    try {
+      // Include account type in the form data
+      const payload = { ...data, accountType };
+
+      // API call to register the user
+      const response = await axios.post("/api/signup", payload);
+
+      // Handle success (e.g., show a message or redirect)
+      console.log("Registration Successful:", response.data);
+      alert("Account created successfully!");
+    } catch (error) {
+      // Handle errors (e.g., validation errors or server issues)
+      console.error(
+        "Error during registration:",
+        error.response?.data || error.message
+      );
+      alert("Failed to create account. Please try again.");
+    }
+  };
   return (
     <section className="max-w-6xl mx-auto rounded-xl shadow-2xl">
       <div className="flex justify-center min-h-screen">
