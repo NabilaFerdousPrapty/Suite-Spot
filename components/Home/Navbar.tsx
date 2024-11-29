@@ -46,9 +46,9 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center ">
+    <header className={`${isActive("/") ? "text-white" : "text-slate-900 border-b-2 shadow-lg bg-blue-50"}  absolute top-0 left-0 right-0 p-6 flex justify-between items-center `}>
       {/* Title */}
-      <h1 className="text-2xl font-bold">Hotel Paradise</h1>
+      <h1 className="text-2xl font-bold">Suite-Spot</h1>
 
       {/* Navigation Links */}
       <nav
