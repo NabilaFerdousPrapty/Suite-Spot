@@ -8,11 +8,19 @@ import { RiMenuUnfold4Line2 } from "react-icons/ri"; // Import icon
 
 const avatarImg = "/path/to/default-avatar.jpg"; // Default avatar image
 const dashboardRouteDefine = "/dashboard"; // Define the dashboard route
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useUser
+} from '@clerk/nextjs'
 
 export default function Navbar() {
+  const { user } = useUser();
   const pathname = usePathname(); // Get the current route path
   const [isOpen, setIsOpen] = useState(false); // State to toggle the mobile menu
-  const user = false; // Placeholder for authentication state
+
   const modalRef = useRef(null); // Ref for modal
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -95,12 +103,15 @@ export default function Navbar() {
 
       {/* Mobile Menu Button */}
       <div
-        onClick={() => setIsOpen(!isOpen)}
-        className="relative p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
+       
+        className="relative p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-5 rounded-full cursor-pointer hover:shadow-md transition"
       >
         {/* 3-line Icon (Hamburger) */}
         {!isOpen ? (
-          <div>
+          <div
+          className="flex gap-4"
+          onClick={() => setIsOpen(!isOpen)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 text-primary transition w-4 md:h-5 md:w-5"
@@ -115,14 +126,22 @@ export default function Navbar() {
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
+            {!user && <p className="font-semibold">Join Us</p>}
           </div>
         ) : (
+          <button
+          className="flex gap-4"
+          onClick={() => setIsOpen(!isOpen)}
+          >
           <RiMenuUnfold4Line2 className="h-4 text-primary transition w-4 md:h-5 md:w-5" />
+            {!user && <p className="font-semibold">Join Us</p>}
+          </button>
         )}
+        {/* {!user && <p className="font-semibold">Join Us</p>} */}
 
         {/* Avatar */}
-        <div className="hidden md:block">
-          {!user && <p className="font-semibold">Join Us</p>}
+        {/* <div className="hidden md:block">
+          
           {user && (
             <Image
               className="rounded-full w-7"
@@ -133,7 +152,10 @@ export default function Navbar() {
               width="30"
             />
           )}
-        </div>
+        </div> */}
+        <SignedIn>
+          <UserButton/>
+        </SignedIn>
       </div>
 
       {/* Mobile Modal for Navigation Links */}
@@ -162,32 +184,23 @@ export default function Navbar() {
             {/* User Options */}
             {user ? (
               <>
-                <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer">
-                  {user?.name}
-                </div>
                 <Link href={dashboardRouteDefine}>
                   <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer">
                     Dashboard
                   </div>
                 </Link>
-                <div
-                  onClick={() => {
-                    // Simulate logout logic here
-                    setIsOpen(false); // Close modal after logout
-                  }}
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer"
-                >
-                  Logout
-                </div>
               </>
             ) : (
               <>
-                <Link href="/login" className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
-                  Login
-                </Link>
-                <Link href="/signUp" className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+             
+                <SignedOut>
+                <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+                <SignInButton mode="modal"/>
+                </div>
+                </SignedOut>
+                {/* <Link href="/signUp" className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
                   Sign Up
-                </Link>
+                </Link> */}
               </>
             )}
           </div>
