@@ -3,9 +3,9 @@ import Navbar from "./Navbar";
 import Hero from "./Hero";
 import AboutUs from "./AboutUs";
 import Categories from "./Categories/Categories";
-import Rooms from "../rooms/page";
 import Services from "../services/page";
 import Testimonials from "./testimonials";
+import Rooms from "../rooms/page";
 
 export default function Home() {
   return (
