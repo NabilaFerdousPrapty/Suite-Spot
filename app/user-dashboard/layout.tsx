@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
                 <header className="mb-6">
                     <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
                 </header>
-                <div className="bg-white p-6 shadow-md rounded-lg">{children}</div>
+                <div className="bg-[#f5f5f5] p-6 rounded-lg">{children}</div>
             </main>
         </div>
     );
