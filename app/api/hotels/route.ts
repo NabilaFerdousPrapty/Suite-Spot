@@ -2,8 +2,8 @@ import clientPromise from "@/lib/mongodb"; // Import MongoDB client
 import { NextResponse } from "next/server"; // Import Next.js response utility
 
 /**
- * POST handler for adding a new hotel to the database.
- * Expects a JSON payload with 'name', 'location', and other hotel details.
+ * POST handler for adding a new room to the database.
+ * Expects a JSON payload with 'name', 'location', and other room details.
  */
 export async function POST(req: Request) {
   try {
@@ -20,10 +20,10 @@ export async function POST(req: Request) {
 
     // Get the MongoDB client and connect to the database and collection
     const client = await clientPromise;
-    const db = client.db("suite-spot");
-    const collection = db.collection("hotels");
+    const db = client.db("Suite-Spot");
+    const collection = db.collection("rooms");
 
-    // Insert the hotel document into the collection
+    // Insert the room document into the collection
     const result = await collection.insertOne({
       name,
       price: price || null, // Use null as default for optional fields
@@ -34,40 +34,40 @@ export async function POST(req: Request) {
     // Return success response with the result of the insertion
     return NextResponse.json({
       success: true,
-      message: "Hotel added successfully!",
+      message: "room added successfully!",
       data: result,
     });
   } catch (error) {
-    console.error("Error posting hotel:", error); // Log errors for debugging
+    console.error("Error posting room:", error); // Log errors for debugging
     return NextResponse.json(
-      { success: false, message: "Failed to add hotel!" },
+      { success: false, message: "Failed to add room!" },
       { status: 500 } // Internal Server Error
     );
   }
 }
 
 /**
- * GET handler for retrieving all hotels from the database.
+ * GET handler for retrieving all rooms from the database.
  */
 export async function GET() {
   try {
     // Get the MongoDB client and connect to the database and collection
     const client = await clientPromise;
-    const db = client.db("suite-spot");
-    const collection = db.collection("hotels");
+    const db = client.db("Suite-Spot");
+    const collection = db.collection("rooms");
 
-    // Fetch all hotel documents from the collection
-    const hotels = await collection.find().toArray();
+    // Fetch all room documents from the collection
+    const rooms = await collection.find().toArray();
 
-    // Return success response with the fetched hotels
+    // Return success response with the fetched rooms
     return NextResponse.json({
       success: true,
-      data: hotels,
+      data: rooms,
     });
   } catch (error) {
-    console.error("Error fetching hotels:", error); // Log errors for debugging
+    console.error("Error fetching rooms:", error); // Log errors for debugging
     return NextResponse.json(
-      { success: false, message: "Failed to fetch hotels!" },
+      { success: false, message: "Failed to fetch rooms!" },
       { status: 500 } // Internal Server Error
     );
   }
