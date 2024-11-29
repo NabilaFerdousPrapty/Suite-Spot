@@ -3,7 +3,7 @@ import React from 'react';
 const Stats = () => {
     return (
         <div>
-            <div className='bg-white shadow-md p-4 rounded-md'>
+            <div className='bg-white shadow-sm p-4 rounded-md'>
                 <h1 className='text-xl mb-4'>Overview</h1>
                 <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4'>
                     <div>
