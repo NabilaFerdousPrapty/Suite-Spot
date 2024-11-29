@@ -19,17 +19,13 @@ const AboutUs: React.FC = () => {
             <div className="w-10 border-t-2 border-blue-600"></div>
             </div>
         <h2 className="text-4xl font-bold text-gray-800">
-            Welcome to <span className="text-blue-600">Hotel Paradise</span>
+            Welcome to <span className="text-blue-600">Suite-Spot</span>
           </h2>
           <p className="text-gray-600  md:max-w-2xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            assumenda incidunt id eum. Fugiat repellat cumque delectus, qui
-            aliquam quas explicabo pariatur molestias.
+          Suite-Spot is your ultimate destination for finding the perfect hotel stay. Whether you are traveling for business, leisure, or a special occasion, Suite-Spot offers a curated selection of top-rated hotels with a variety of options to suit every need. From luxury resorts and boutique hotels to budget-friendly accommodations, our platform helps you discover the best deals on rooms, amenities, and services.
           </p>
             <p className="text-gray-300 md:max-w-2xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque assumenda incidunt id eum. Fugiat repellat cumque
-              delectus, qui aliquam quas explicabo pariatur molestias.
+            With easy-to-use search filters, real-time availability, and secure booking options, Suite-Spot ensures you have a smooth and hassle-free experience from start to finish. Explore new destinations, compare hotel prices, and book your next getaway with confidence—all in one place
             </p>
             <div>
             <button className="mb-8 font-semibold border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700">Discover More</button>

@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee"; // Import the Marquee component
 import { testimonials } from "./index";
 
 const Testimonials: React.FC = () => {
-  console.log(testimonials);
+  // console.log(testimonials);
 
   return (
     <section className="relative flex">

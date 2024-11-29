@@ -16,7 +16,8 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({ label, icon: Icon }) => {
         gap-2
         p-3
         border-b-2
-        hover:text-neutral-800
+        hover:text-neutral-900
+        hover:border-gray-800
         transition
         cursor-pointer`}
     >
