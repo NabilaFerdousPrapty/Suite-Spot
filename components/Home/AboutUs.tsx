@@ -7,31 +7,33 @@ const AboutUs: React.FC = () => {
     <section className=" md:py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          
-        </div>
+        <div className="text-center mb-12"></div>
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="flex flex-col justify-center space-y-8">
+          <div className="flex flex-col justify-center space-y-8">
             <div className="flex items-center gap-3">
-            <p className="text-blue-600 font-bold">About </p> 
-            <div className="w-10 border-t-2 border-blue-600"></div>
+              <p className="text-blue-600 font-bold">About </p>
+              <div className="w-10 border-t-2 border-blue-600"></div>
             </div>
-        <h2 className="text-4xl font-bold text-gray-800">
-            Welcome to <span className="text-blue-600">Suite-Spot</span>
-          </h2>
-          <p className="text-gray-600  md:max-w-2xl">
-          Suite-Spot is your ultimate destination for finding the perfect hotel stay. Whether you are traveling for business, leisure, or a special occasion, Suite-Spot offers a curated selection of top-rated hotels with a variety of options to suit every need. From luxury resorts and boutique hotels to budget-friendly accommodations, our platform helps you discover the best deals on rooms, amenities, and services.
-          </p>
+
+            <h2 className="text-4xl font-bold text-gray-800">
+              Welcome to <span className="text-blue-600">Hotel Paradise</span>
+            </h2>
+            <p className="text-gray-600  md:max-w-2xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Doloremque assumenda incidunt id eum. Fugiat repellat cumque
+              delectus, qui aliquam quas explicabo pariatur molestias.
+            </p>
+
             <p className="text-gray-300 md:max-w-2xl">
             With easy-to-use search filters, real-time availability, and secure booking options, Suite-Spot ensures you have a smooth and hassle-free experience from start to finish. Explore new destinations, compare hotel prices, and book your next getaway with confidence—all in one place
             </p>
             <div>
-            <button className="mb-8 font-semibold border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700">Discover More</button>
+              <button className="mb-8 font-semibold border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700">
+                Discover More
+              </button>
             </div>
-
-            
           </div>
           {/* Left Section: Image Grid */}
           <div className="grid grid-cols-2 gap-4">
@@ -70,24 +72,24 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center my-10">
-              {/* Stat Item */}
-              <div>
-                <p className="text-4xl font-bold text-gray-800">8</p>
-                <p className="text-gray-900 font-semibold">Years of Service</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-gray-800">459</p>
-                <p className="text-gray-900 font-semibold">Sq Meter Area</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-gray-800">50</p>
-                <p className="text-gray-900 font-semibold">New Rooms</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-gray-800">3786</p>
-                <p className="text-gray-900 font-semibold">Happy Visitors</p>
-              </div>
-            </div>
+          {/* Stat Item */}
+          <div>
+            <p className="text-4xl font-bold text-gray-800">8</p>
+            <p className="text-gray-900 font-semibold">Years of Service</p>
+          </div>
+          <div>
+            <p className="text-4xl font-bold text-gray-800">459</p>
+            <p className="text-gray-900 font-semibold">Sq Meter Area</p>
+          </div>
+          <div>
+            <p className="text-4xl font-bold text-gray-800">50</p>
+            <p className="text-gray-900 font-semibold">New Rooms</p>
+          </div>
+          <div>
+            <p className="text-4xl font-bold text-gray-800">3786</p>
+            <p className="text-gray-900 font-semibold">Happy Visitors</p>
+          </div>
+        </div>
       </div>
     </section>
   );
