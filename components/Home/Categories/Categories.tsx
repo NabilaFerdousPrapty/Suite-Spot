@@ -17,6 +17,8 @@ const Categories = () => {
         modules={[Navigation, Pagination]}
         spaceBetween={20}
         slidesPerView={5}
+        //  navigation
+        pagination={{ clickable: true }}
         breakpoints={{
           1024: { slidesPerView: 12 },
           768: { slidesPerView: 9 },
@@ -24,9 +26,9 @@ const Categories = () => {
           0: { slidesPerView: 6 },
         }}
       >
-        {categories.map((item) => (
-          <SwiperSlide key={item.label}>
-            <CategoryBox label={item.label} icon={item.icon} />
+        {categories?.map((item) => (
+          <SwiperSlide className='py-8' key={item.label}>
+            <CategoryBox label={item?.label} icon={item?.icon} />
           </SwiperSlide>
         ))}
       </Swiper>
