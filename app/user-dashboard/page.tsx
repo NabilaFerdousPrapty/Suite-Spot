@@ -4,7 +4,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 
 const page = () => {
     return (
-        <div className='bg-[#f5f5f5] rounded  text-black'>
+        <div className='bg-[#f5f5f5] rounded  text-black p-4'>
             <Stats />
 
             {/* Rooms */}
