@@ -11,9 +11,6 @@ const Layout = ({ children }) => {
 
             {/* main content */}
             <main className="flex-1 p-6">
-                <header className="mb-6">
-                    <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
-                </header>
                 <div className="">{children}</div>
             </main>
         </div>

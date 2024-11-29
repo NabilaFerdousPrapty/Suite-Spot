@@ -47,7 +47,7 @@ const GuestTable = () => {
     ];
 
     return (
-        <div className="w-full border rounded-lg m-2 p-2">
+        <div className="w-full border rounded-lg m-2 p-2 ">
             <Table className="border-b">
                 <TableHeader >
                     <TableRow >
