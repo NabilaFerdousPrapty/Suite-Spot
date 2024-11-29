@@ -4,6 +4,7 @@ import { AiOutlineArrowRight } from "react-icons/ai"; // React icon for arrow ri
 import { FaClipboardList, FaUtensils } from "react-icons/fa";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
 
 const SignUpForm = () => {
   // Initialize the useForm hook

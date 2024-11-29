@@ -16,7 +16,10 @@ export default function Navbar() {
   const modalRef = useRef(null); // Ref for modal
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -182,10 +185,16 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+                <Link
+                  href="/login"
+                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                >
                   Login
                 </Link>
-                <Link href="/signUp" className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+                <Link
+                  href="/signUp"
+                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                >
                   Sign Up
                 </Link>
               </>
