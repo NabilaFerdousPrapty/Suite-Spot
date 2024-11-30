@@ -2,7 +2,6 @@
 import { MongoClient } from "mongodb";
 
 // Check if the MONGODB_URI environment variable is defined
-// If not, throw an error to prevent runtime issues
 if (!process.env.MONGODB_URI) {
   throw new Error("MONGODB_URI is not defined in environment variables");
 }
@@ -10,19 +9,20 @@ if (!process.env.MONGODB_URI) {
 // MongoDB connection string from environment variables
 const uri = process.env.MONGODB_URI;
 
-// Options object for MongoDB client configuration (can be customized as needed)
+// MongoDB client options
 const options = {};
 
-// Declare variables for the MongoClient instance and a promise to manage the connection
+// Declare a variable for the MongoClient instance and the connection promise
 let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
+// Check the environment mode to handle connection differently for development and production
 if (process.env.NODE_ENV === "development") {
   /**
    * In development mode, use a global variable to preserve the MongoDB client connection
    * across server restarts or hot reloads in a development environment.
    */
-  let globalWithMongo = global as typeof globalThis & {
+  const globalWithMongo = global as typeof globalThis & {
     _mongoClientPromise?: Promise<MongoClient>;
   };
 
@@ -43,5 +43,5 @@ if (process.env.NODE_ENV === "development") {
   clientPromise = client.connect();
 }
 
-// Export the clientPromise to be used in other parts of the application
+// Export the clientPromise to be used throughout the application
 export default clientPromise;
