@@ -7,7 +7,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { RiMenuUnfold4Line2 } from "react-icons/ri"; // Import icon
 
 const avatarImg = "/path/to/default-avatar.jpg"; // Default avatar image
-const dashboardRouteDefine = "/dashboard"; // Define the dashboard route
+const dashboardRouteDefine = "/user-dashboard"; // Define the dashboard route
 import {
   SignInButton,
   SignedIn,
