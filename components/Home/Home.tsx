@@ -3,9 +3,9 @@ import Navbar from "./Navbar";
 import Hero from "./Hero";
 import AboutUs from "./AboutUs";
 import Categories from "./Categories/Categories";
-import Rooms from "../rooms/page";
-import Services from "../services/page";
 import Testimonials from "./testimonials";
+import Rooms from "../rooms/page";
+import Services from "./services/page";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       >
         <div className="bg-black bg-opacity-50">
           <div className="container mx-auto  min-h-[80vh] md:min-h-[60vh] flex flex-col text-white">
-            <Navbar />
+            {/* <Navbar /> */}
             <Hero />
           </div>
         </div>
