@@ -11,12 +11,34 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     // Destructure fields from the request body
-    const { name, price, area } = body;
+    const {
+      location,
+      category,
+      title,
+      to,
+      from,
+      price,
+      guests,
+      bathrooms,
+      bedrooms,
+      host,
+      description,
+      image,
+    } = body;
 
     // Validate required fields
-    if (!name) {
-      return NextResponse.json({ success: false, message: "Name is required!" }, { status: 400 });
+    if (!title || !location || !category || !price || !from || !to) {
+      return NextResponse.json(
+        { success: false, message: "Missing required fields!" },
+        { status: 400 }
+      );
     }
+
+    // Ensure numerical fields are properly converted
+    const parsedPrice = Number(price);
+    const parsedGuests = Number(guests);
+    const parsedBathrooms = Number(bathrooms);
+    const parsedBedrooms = Number(bedrooms);
 
     // Get the MongoDB client and connect to the database and collection
     const client = await clientPromise;
@@ -25,16 +47,29 @@ export async function POST(req: Request) {
 
     // Insert the room document into the collection
     const result = await collection.insertOne({
-      name,
-      price: price || null, // Use null as default for optional fields
-      area: area || null,
+      location,
+      category,
+      title,
+      to: new Date(to),
+      from: new Date(from),
+      price: parsedPrice,
+      guests: parsedGuests,
+      bathrooms: parsedBathrooms,
+      bedrooms: parsedBedrooms,
+      host: {
+        name: host?.name || null,
+        image: host?.image || null,
+        email: host?.email || null,
+      },
+      description: description || null,
+      image: image || null,
       createdAt: new Date(),
     });
 
     // Return success response with the result of the insertion
     return NextResponse.json({
       success: true,
-      message: "room added successfully!",
+      message: "Room added successfully!",
       data: result,
     });
   } catch (error) {
