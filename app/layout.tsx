@@ -19,6 +19,14 @@ export const metadata: Metadata = {
   title: "Suite Spot",
   description: "A place to find the best spots in the world",
 };
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
+import './globals.css'
 
 export default function RootLayout({
   children,
@@ -26,16 +34,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
-
-        <Navbar />
-        <div className="my-5">{children}</div>
-        <Footer />
-
+        <Navbar/>
+        {children}
+        <Footer/>
       </body>
     </html>
+    </ClerkProvider>
   );
 }

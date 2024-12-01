@@ -77,46 +77,46 @@ const Rooms = () => {
         Explore Our <span className="text-[#3E48A8]">Rooms</span>
       </h1>
 
-      {/* Hotel Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {/* single card */}
-        {roomsArr?.map((room) => (
-          <div key={room._id} className="w-full border shadow-md">
-            <Image
-              src={room.image}
-              alt="hotel image"
-              className="w-full"
-              width={400}
-              height={300}
-            />
-            <div className="p-6 space-y-4">
-              <h1 className="text-2xl font-bold">{room?.title}</h1>
-              <div className="text-[#6d6d70] flex justify-between">
-                <p className="flex items-center">
-                  <TbBathFilled className="text-[#3E48A8] mr-2" />
-                  {room?.bathrooms} Bath
-                </p>
-                <p className="flex items-center">
-                  <FaBed className="text-[#3E48A8] mr-2" />
-                  {room?.bedrooms} Beds
-                </p>
-                <p className="flex items-center">
-                  <FaWifi className="text-[#3E48A8] mr-2" />
-                  Wifi
-                </p>
-              </div>
-              <p>{room?.description}</p>
-              <p className="text-xl font-bold">${room?.price} / Per Night</p>
-              <Link href="#">
-                <button className="button w-full bg-[#3E48A8] text-white p-2 mt-4">
-                  Book Now
-                </button>
-              </Link>
+            {/* Hotel Cards */}
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
+                {/* single card */}
+                {
+                    roomsArr?.map(room=>(
+                        <Link key={room?._id} href={`room-details/${room?._id}`}>
+                        <div
+                    key={room._id} className='w-full border shadow-md'>
+                        <Image
+                            src={room.image}
+                            alt={`hotel image`}
+                            className="w-full"
+                            width={400}
+                            height={300}
+                        />
+                        <div className='p-6 space-y-4'>
+                            <h1 className='text-2xl font-bold'>{room?.title}</h1>
+                            <div className='text-[#6d6d70] flex justify-between 
+                            '>
+                                <p className='flex items-center'><TbBathFilled className='text-[#3E48A8] mr-2' />
+                                    {room?.bathrooms} Bath</p>
+                                <p className='flex items-center'><FaBed className='text-[#3E48A8] mr-2' />
+                                {room?.bedrooms} Beds</p>
+    
+                                <p className='flex items-center'><FaWifi className='text-[#3E48A8] mr-2' />
+                                    Wifi</p>
+                            </div>
+                            <p>{room?.description}</p>
+                            <p className='text-xl font-bold'>${room?.price} / Per Night</p>
+                            <button className='button w-full bg-[#3E48A8] text-white p-2'>Book Now</button>
+                        </div>
+                    </div>
+                        </Link>
+                    ))
+                }
             </div>
-          </div>
-        ))}
+          
+        
       </div>
-    </div>
+
   );
 };
 
