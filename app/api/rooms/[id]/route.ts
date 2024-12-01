@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 // GET handler for retrieving a specific room by ID
 export async function GET(req: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = await params;
+    const { id } = params;
 
     if (!ObjectId.isValid(id)) {
       return NextResponse.json({ success: false, message: "Invalid room ID!" }, { status: 400 });
