@@ -50,8 +50,7 @@ const roomsArr = [
     _id: "664718fde6931ab2b2a35657",
     location: "Kamiminochi, Japan",
     category: "Desert",
-    title:
-      "Anoie home with a private sauna with spectacular views of Lake Nojiri",
+    title: "Anoie home with a private sauna with spectacular views of Lake Nojiri",
     to: "2024-06-04T18:00:00.000Z",
     from: "2024-05-31T18:00:00.000Z",
     price: "140",
@@ -82,13 +81,7 @@ const Rooms = () => {
         {/* single card */}
         {roomsArr?.map((room) => (
           <div key={room._id} className="w-full border shadow-md">
-            <Image
-              src={room.image}
-              alt="hotel image"
-              className="w-full"
-              width={400}
-              height={300}
-            />
+            <Image src={room.image} alt="hotel image" className="w-full" width={400} height={300} />
             <div className="p-6 space-y-4">
               <h1 className="text-2xl font-bold">{room?.title}</h1>
               <div className="text-[#6d6d70] flex justify-between">
@@ -108,9 +101,7 @@ const Rooms = () => {
               <p>{room?.description}</p>
               <p className="text-xl font-bold">${room?.price} / Per Night</p>
               <Link href="#">
-                <button className="button w-full bg-[#3E48A8] text-white p-2 mt-4">
-                  Book Now
-                </button>
+                <button className="button w-full bg-[#3E48A8] text-white p-2 mt-4">Book Now</button>
               </Link>
             </div>
           </div>

@@ -1,27 +1,21 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState, useRef, useEffect } from "react";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import { useUser } from "@clerk/nextjs";
-
-const avatarImg = "/path/to/default-avatar.jpg";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const modalRef = useRef(null);
+  const [isClient, setIsClient] = useState(false); // Client-only rendering
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
-  const { user } = useUser();
-  console.log(user);
+  useEffect(() => {
+    setIsClient(true); // Detect client rendering
+  }, []);
 
   const isActive = (path: string) => pathname === path;
 
@@ -35,10 +29,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         setIsMenuOpen(false);
       }
     };
@@ -55,9 +46,7 @@ export default function Navbar() {
   return (
     <header
       className={`${
-        isActive("/")
-          ? "text-white"
-          : "text-slate-900 border-b-2 shadow-lg bg-blue-50"
+        isActive("/") ? "text-white" : "text-slate-900 border-b-2 shadow-lg bg-blue-50"
       } absolute top-0 left-0 right-0 p-6 flex justify-between items-center`}
     >
       {/* Logo */}
@@ -101,18 +90,22 @@ export default function Navbar() {
 
       {/* Authentication Buttons */}
       <div className="hidden md:flex items-center gap-3">
-        <SignedIn>
-          <div className="flex flex-col cursor-pointer">
-            <UserButton />
-          </div>
-        </SignedIn>
-        <SignedOut>
-          <div className="flex flex-col cursor-pointer">
-            <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
-              <SignInButton />
+        {isClient && (
+          <SignedIn>
+            <div className="flex flex-col cursor-pointer">
+              <UserButton />
             </div>
-          </div>
-        </SignedOut>
+          </SignedIn>
+        )}
+        {isClient && (
+          <SignedOut>
+            <div className="flex flex-col cursor-pointer">
+              <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+                <SignInButton />
+              </div>
+            </div>
+          </SignedOut>
+        )}
       </div>
 
       {/* Mobile Navigation Dropdown */}
@@ -128,24 +121,28 @@ export default function Navbar() {
               className={`block text-gray-800 hover:text-blue-500 transition ${
                 isActive(menu.path) ? "font-semibold" : ""
               }`}
-              onClick={() => setIsNavOpen(false)} // Close menu on link click
+              onClick={() => setIsNavOpen(false)}
             >
               {menu.name}
             </Link>
           ))}
           <div className="border-t mt-4 pt-4">
-            <SignedIn>
-              <div className="flex flex-col cursor-pointer">
-                <UserButton />
-              </div>
-            </SignedIn>
-            <SignedOut>
-              <div className="flex flex-col cursor-pointer">
-                <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
-                  <SignInButton />
+            {isClient && (
+              <SignedIn>
+                <div className="flex flex-col cursor-pointer">
+                  <UserButton />
                 </div>
-              </div>
-            </SignedOut>
+              </SignedIn>
+            )}
+            {isClient && (
+              <SignedOut>
+                <div className="flex flex-col cursor-pointer">
+                  <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+                    <SignInButton />
+                  </div>
+                </div>
+              </SignedOut>
+            )}
           </div>
         </nav>
       )}
