@@ -7,6 +7,7 @@ import { differenceInCalendarDays } from "date-fns";
 import BookingModal from "@/components/Modal/BookingModal";
 import Button from "@/components/Shared/Button";
 import { Room } from "@/Type";
+import { useUser } from "@clerk/nextjs";
 
 interface Guest {
   name: string;
@@ -20,8 +21,10 @@ interface RoomReservationProps {
   user: Guest | null;
 }
 
-const RoomReservation: React.FC<RoomReservationProps> = ({ room, refetch, user }) => {
+const RoomReservation: React.FC<RoomReservationProps> = ({ room, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useUser();
+
   const [state, setState] = useState([
     {
       startDate: new Date(room.from),
@@ -76,9 +79,9 @@ const RoomReservation: React.FC<RoomReservationProps> = ({ room, refetch, user }
           ...room,
           price: totalPrice,
           guest: {
-            name: user?.name || "Guest",
-            email: user?.email || "guest@example.com",
-            image: user?.image || "",
+            name: user?.firstName || "Guest",
+            email: user?.emailAddresses || "guest@example.com",
+            image: user?.imageUrl || "",
           },
         }}
       />

@@ -1,20 +1,21 @@
-"use client"; // Ensure this is a Client Component
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState, useRef, useEffect } from "react";
-import { RiMenuUnfold4Line2 } from "react-icons/ri"; // Import icon
+import { RiMenuUnfold4Line2 } from "react-icons/ri";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
+import { useUser } from "@clerk/nextjs";
 
 const avatarImg = "/path/to/default-avatar.jpg"; // Default avatar image
 const dashboardRouteDefine = "/user-dashboard"; // Define the dashboard route
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-  useUser
-} from '@clerk/nextjs'
+
 
 export default function Navbar() {
   const { user } = useUser();
@@ -24,7 +25,10 @@ export default function Navbar() {
   const modalRef = useRef(null); // Ref for modal
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -38,10 +42,9 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // Helper function to determine if a link is active
   const isActive = (path: string) => pathname === path;
 
-  // Placeholder for menu items
+
   const megaMenu = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -51,54 +54,27 @@ export default function Navbar() {
   ];
 
   return (
-    <header className={`${isActive("/") ? "text-white" : "text-slate-900 border-b-2 shadow-lg bg-blue-50"}  absolute top-0 left-0 right-0 p-6 flex justify-between items-center `}>
-      {/* Title */}
-      <h1 className="text-2xl font-bold">Suite-Spot</h1>
+    <header
+      className={`${
+        isActive("/")
+          ? "text-white"
+          : "text-slate-900 border-b-2 shadow-lg bg-blue-50"
+      } absolute top-0 left-0 right-0 p-6 flex justify-between items-center`}
+    >
+      <Link href={"/"} className="text-2xl font-bold">Suite-Spot</Link>
 
-      {/* Navigation Links */}
-      <nav
-        className={`hidden md:flex md:items-center md:space-x-6 w-full md:w-auto bg-white md:bg-transparent`}
-      >
-        <Link
-          href="/"
-          className={`block py-2 md:inline hover:text-gray-500 ${
-            isActive("/") ? "text-blue-500 font-semibold" : ""
-          }`}
-        >
-          Home
-        </Link>
-        <Link
-          href="/about"
-          className={`block py-2 md:inline hover:text-gray-500 ${
-            isActive("/about") ? "text-blue-500 font-semibold" : ""
-          }`}
-        >
-          About
-        </Link>
-        <Link
-          href="/rooms"
-          className={`block py-2 md:inline hover:text-gray-500 ${
-            isActive("/rooms") ? "text-blue-500 font-semibold" : ""
-          }`}
-        >
-          Rooms
-        </Link>
-        <Link
-          href="/services"
-          className={`block py-2 md:inline hover:text-gray-500 ${
-            isActive("/services") ? "text-blue-500 font-semibold" : ""
-          }`}
-        >
-          Services
-        </Link>
-        <Link
-          href="/contact"
-          className={`block py-2 md:inline hover:text-gray-500 ${
-            isActive("/contact") ? "text-blue-500 font-semibold" : ""
-          }`}
-        >
-          Contact
-        </Link>
+      <nav className="hidden md:flex md:items-center md:space-x-6 w-full md:w-auto bg-white md:bg-transparent">
+        {megaMenu?.map((menu) => (
+          <Link
+            key={menu.path}
+            href={menu.path}
+            className={`block py-2 md:inline hover:text-gray-500 ${
+              isActive(menu.path) ? "text-blue-500 font-semibold" : ""
+            }`}
+          >
+            {menu.name}
+          </Link>
+        ))}
       </nav>
 
       {/* Mobile Menu Button */}
@@ -137,28 +113,11 @@ export default function Navbar() {
             {!user && <p className="font-semibold">Join Us</p>}
           </button>
         )}
-        {/* {!user && <p className="font-semibold">Join Us</p>} */}
-
-        {/* Avatar */}
-        {/* <div className="hidden md:block">
-          
-          {user && (
-            <Image
-              className="rounded-full w-7"
-              referrerPolicy="no-referrer"
-              src={user && user.profileImage ? user.profileImage : avatarImg}
-              alt="profile"
-              height="30"
-              width="30"
-            />
-          )}
-        </div> */}
         <SignedIn>
           <UserButton/>
         </SignedIn>
       </div>
 
-      {/* Mobile Modal for Navigation Links */}
       {isOpen && (
         <div
           ref={modalRef}

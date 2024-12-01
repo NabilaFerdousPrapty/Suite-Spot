@@ -10,7 +10,7 @@ import { CardElementProps } from "@stripe/stripe-js";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import axios from "axios";
-
+import { useUser } from "@clerk/nextjs";
 interface BookingInfo {
   _id?: string;
   title: string;
@@ -35,7 +35,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
   bookingInfo,
   refetch,
 }) => {
-  const user  = false
+  const { user } = useUser();
+  // console.log(user?.imageUrl);
   const stripe = useStripe();
   const elements = useElements();
   const router = useRouter();
@@ -82,8 +83,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         type: "card",
         card,
         billing_details: {
-          email: user?.email || "",
-          name: user?.displayName || "",
+          email: user?.emailAddresses[0].emailAddress  || "",
+          name: user?.imageUrl || "",
         },
       });
 
@@ -100,8 +101,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           payment_method: {
             card,
             billing_details: {
-              email: user?.email || "",
-              name: user?.displayName || "",
+          email: user?.emailAddresses[0].emailAddress || "",
+          name: user?.imageUrl || "",
             },
           },
         }
