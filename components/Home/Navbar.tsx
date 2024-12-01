@@ -108,9 +108,9 @@ export default function Navbar() {
         </SignedIn>
         <SignedOut>
           <div className="flex flex-col cursor-pointer">
-            <button className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+            <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
               <SignInButton />
-            </button>
+            </div>
           </div>
         </SignedOut>
       </div>
@@ -141,9 +141,9 @@ export default function Navbar() {
             </SignedIn>
             <SignedOut>
               <div className="flex flex-col cursor-pointer">
-                <button className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+                <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold">
                   <SignInButton />
-                </button>
+                </div>
               </div>
             </SignedOut>
           </div>
