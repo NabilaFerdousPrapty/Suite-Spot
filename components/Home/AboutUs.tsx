@@ -21,13 +21,16 @@ const AboutUs: React.FC = () => {
               Welcome to <span className="text-blue-600">Hotel Paradise</span>
             </h2>
             <p className="text-gray-600  md:max-w-2xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque assumenda incidunt id eum. Fugiat repellat cumque
-              delectus, qui aliquam quas explicabo pariatur molestias.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque assumenda incidunt
+              id eum. Fugiat repellat cumque delectus, qui aliquam quas explicabo pariatur
+              molestias.
             </p>
 
             <p className="text-gray-300 md:max-w-2xl">
-            With easy-to-use search filters, real-time availability, and secure booking options, Suite-Spot ensures you have a smooth and hassle-free experience from start to finish. Explore new destinations, compare hotel prices, and book your next getaway with confidence—all in one place
+              With easy-to-use search filters, real-time availability, and secure booking options,
+              Suite-Spot ensures you have a smooth and hassle-free experience from start to finish.
+              Explore new destinations, compare hotel prices, and book your next getaway with
+              confidence—all in one place
             </p>
             <div>
               <button className="mb-8 font-semibold border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700">
@@ -36,7 +39,7 @@ const AboutUs: React.FC = () => {
             </div>
           </div>
           {/* Left Section: Image Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* <div className="grid grid-cols-2 gap-4">
             <div className="relative w-full h-40 md:h-48">
               <Image
                 src="https://i.ibb.co.com/fFdbptV/download.jpg"
@@ -69,7 +72,7 @@ const AboutUs: React.FC = () => {
                 className="rounded-lg shadow-md object-cover"
               />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center my-10">
           {/* Stat Item */}

@@ -4,7 +4,7 @@ import Hero from "./Hero";
 import AboutUs from "./AboutUs";
 import Categories from "./Categories/Categories";
 import Testimonials from "./testimonials";
-import Rooms from "../rooms/page";
+import OurRooms from "../rooms/page";
 import Services from "./services/page";
 
 export default function Home() {
@@ -13,8 +13,7 @@ export default function Home() {
       <div
         className="min-h-[80vh] md:min-h-[60vh] bg-cover bg-center w-full"
         style={{
-          backgroundImage:
-            "url('https://i.ibb.co.com/qsg3YH9/pexels-pixabay-258154.jpg')",
+          backgroundImage: "url('https://i.ibb.co.com/qsg3YH9/pexels-pixabay-258154.jpg')",
         }}
       >
         <div className="bg-black bg-opacity-50">
@@ -28,7 +27,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto ">
         <AboutUs />
         <Categories />
-        <Rooms />
+        <OurRooms />
         <Services />
         <Testimonials />
       </div>
