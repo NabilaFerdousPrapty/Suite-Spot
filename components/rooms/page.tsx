@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const OurRooms = () => {
@@ -53,11 +54,15 @@ const OurRooms = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
         {rooms.map((room) => (
-          <div key={room._id} className="border rounded-lg p-4 shadow hover:shadow-lg transition">
+          <Link
+            href={`/rooms/${room._id}`}
+            key={room._id}
+            className="border rounded-lg p-4 shadow hover:shadow-lg transition"
+          >
             <h2 className="text-xl font-semibold text-red-500">{room.title}</h2>
             <p className="text-gray-700 mt-2">{room.description}</p>
             <p className="font-bold mt-4">${room.price}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
