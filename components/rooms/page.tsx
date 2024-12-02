@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -55,13 +56,52 @@ const OurRooms = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
         {rooms.map((room) => (
           <Link
-            href={`/rooms/${room._id}`}
             key={room._id}
-            className="border rounded-lg p-4 shadow hover:shadow-lg transition"
+            href={`/rooms/${room._id}`}
+            className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden"
           >
-            <h2 className="text-xl font-semibold text-red-500">{room.title}</h2>
-            <p className="text-gray-700 mt-2">{room.description}</p>
-            <p className="font-bold mt-4">${room.price}</p>
+            <Image
+              src={room.image}
+              alt={room.title}
+              width={500}
+              height={256}
+              className="object-cover w-full h-64"
+            />
+            <div className="p-6">
+              <div>
+                <span className="text-xs font-medium text-blue-600 uppercase">
+                  {room.category}
+                </span>
+                <h2 className="block mt-2 text-xl font-semibold text-gray-800 hover:text-gray-600 hover:underline transition-colors duration-300">
+                  {room.title}
+                </h2>
+                <p className="mt-2 text-sm text-gray-600">{room.description}</p>
+              </div>
+              <div className="mt-4">
+                <div className="flex items-center">
+                  <div className="flex items-center">
+                    <Image
+                      width={40}
+                      height={40}
+                      src={room.host.image}
+                      alt={room.host.name}
+                      className="object-cover h-10 w-10 rounded-full"
+                    />
+                    <div className="ml-2">
+                      <span className="block font-semibold text-gray-700">
+                        {room.host.name}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        {new Date(room.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="ml-auto font-bold text-blue-500">
+                    ${room.price} / night
+                  </p>
+                </div>
+              </div>
+            </div>
           </Link>
         ))}
       </div>
